@@ -15,5 +15,5 @@ public class TicketResponseDto {
     private String countryTo;
     private String cityTo;
     private LocalDate flightDate;
-    private Integer price;
+    private Long price;
 }

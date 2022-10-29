@@ -2,10 +2,12 @@ package com.bobocode.petros.propositionservice.domain.dto.response;
 
 import com.bobocode.petros.propositionservice.domain.dto.enumeration.Currency;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
 
 @Data
+@Accessors(chain = true)
 public class HotelResponseDto {
     private String hotel;
     private LocalDate startDate;
@@ -14,7 +16,7 @@ public class HotelResponseDto {
 
     @Data
     public static class Price {
-        private Integer value;
+        private Long value;
         private Currency currency;
     }
 }

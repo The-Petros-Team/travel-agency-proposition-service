@@ -10,3 +10,12 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+grpc:
+  client:
+    ticket-service:
+      address: static://localhost:9090
+      negotiationType: plaintext
+    hotel-service:
+      address: static://localhost:9080
+      negotiationType: plaintext

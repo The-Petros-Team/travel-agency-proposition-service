@@ -42,7 +42,7 @@ public class DtoUtils {
 
     private PriceDto mapToPriceDto(HotelResponseDto.Price price) {
         var priceDto = new PriceDto();
-        priceDto.setValue(price.getValue());
+        priceDto.setValue(price.getValue().intValue());
         priceDto.setCurrency(PriceDto.CurrencyEnum.fromValue(price.getCurrency().name()));
         return priceDto;
     }
@@ -53,7 +53,7 @@ public class DtoUtils {
         ticketDto.setCityFrom(ticketResponseDto.getCityFrom());
         ticketDto.setCountryTo(ticketResponseDto.getCountryTo());
         ticketDto.setCityTo(ticketResponseDto.getCityTo());
-        ticketDto.setPrice(ticketResponseDto.getPrice());
+        ticketDto.setPrice(ticketResponseDto.getPrice().intValue());
         ticketDto.setFlightDate(ticketResponseDto.getFlightDate());
         ticketDto.setPropertyClass(TicketDto.PropertyClassEnum.valueOf(ticketResponseDto.getFlightClass().name()));
         return ticketDto;

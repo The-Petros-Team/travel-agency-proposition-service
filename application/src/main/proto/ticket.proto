@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package person;
+option java_package = "com.bobocode.petros.ticketservice.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message TicketRequest{
+  string countryFrom = 1;
+  string cityFrom = 2;
+  string countryTo = 3;
+  string cityTo = 4;
+  google.protobuf.Timestamp startDate = 5;
+  google.protobuf.Timestamp endDate = 6;
+}
+
+message TicketResponse{
+  string class = 1;
+  string countryFrom = 2;
+  string cityFrom = 3;
+  string countryTo = 4;
+  string cityTo = 5;
+  google.protobuf.Timestamp flightDate = 6;
+  uint64 price = 7;
+}
+
+message MultipleTicketResponse{
+  repeated TicketResponse tickets = 1;
+}
+
+service TicketService{
+  rpc GetTickets(TicketRequest) returns (MultipleTicketResponse);
+}

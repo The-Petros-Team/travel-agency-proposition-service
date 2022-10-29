@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package person;
+option java_package = "com.bobocode.petros.hotelservice.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message HotelRequest{
+  string country = 1;
+  string city = 2;
+  google.protobuf.Timestamp startDate = 3;
+  google.protobuf.Timestamp endDate = 4;
+}
+
+message Price {
+  uint64 price = 1;
+  string currency = 2;
+}
+
+message HotelResponse{
+  string hotel = 1;
+  google.protobuf.Timestamp startDate = 2;
+  google.protobuf.Timestamp endDate = 3;
+  Price price = 4;
+}
+
+message MultipleHotelResponse{
+  repeated HotelResponse Hotels = 1;
+}
+
+service HotelService{
+  rpc GetHotels(HotelRequest) returns (MultipleHotelResponse);
+}
